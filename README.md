@@ -1,69 +1,125 @@
-# React + TypeScript + Vite
+# 🌦️ 7-Day Weather Forecast App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A weather forecast app built with **React**, **TypeScript**, and **Vite**. Enter any U.S. address to instantly view a detailed 7-day weather forecast using public government APIs.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19** + **TypeScript**
+- **Vite** – blazing fast dev/build tool
+- **Tailwind CSS** – utility-first styling
+- **Axios** – for HTTP requests
+- **React Testing Library** + **Vitest** – for testing components and hooks
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🌐 APIs Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **US Census Geocoding API**  
+  Converts a U.S. address into latitude and longitude.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **US National Weather Service API**  
+  Retrieves a 7-day weather forecast based on geographic coordinates.
+
+---
+
+## 🗂️ Project Structure
+
+```
+src/
+├── components/         # Reusable UI components (InputForm, ForecastCard, etc.)
+├── hooks/              # Custom React hooks (useWeather, useGeocode)
+├── interfaces/         # TypeScript interfaces
+├── test/               # Vitest setup and tests
+├── App.tsx             # App root
+└── main.tsx            # App entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ✅ Features
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 📍 Converts address to latitude/longitude
+- 📆 7-day forecast with day/night split
+- 🌦️ Icons, temperature, precipitation, and descriptions
+- 📱 Fully responsive UI (mobile and desktop)
+- ♿ Accessible components
+- 🧪 Unit tested: components + custom hooks
+
+---
+
+## ▶️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/brunobz/weather-forecast-app.git
+cd weather-forecast-app
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start development server
+
+```bash
+npm run dev
+```
+
+App will be running at: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🧪 Running Tests
+
+This project uses **Vitest** and **React Testing Library** for unit testing.
+
+### Run all tests
+
+```bash
+npm run test
+```
+
+### Run in watch mode with UI
+
+```bash
+npm run test:ui
+```
+
+---
+
+## 🧠 Accessibility & UX
+
+- ARIA roles and labels included
+- Loading and error feedback
+- Focus management
+- Semantic HTML structure
+
+---
+
+## 🏗️ Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## 📌 Known Limitations
+
+- The app currently supports **U.S. addresses only**
+- The **National Weather Service API** may occasionally rate-limit requests
+
+---
+
+## 🤝 Author
+
+**Bruno Bianchini Zandavalle**  
+Frontend Engineer – React + TypeScript  
+[LinkedIn →](https://www.linkedin.com/in/bruno-bianchini-zandavalle-9ab37ab0)
+
+---
