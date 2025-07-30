@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { ICoordinates } from "@/interfaces/coordinates";
 import { LocationIcon } from "@/components/ui/icons/LocationIcon";
 import { ForecastSection } from "./ForecastSection/ForecastSection";
+import { SpinnerIcon } from "@/components/ui/icons/SpinnerIcon";
 
 export default function WeatherView() {
   const [coords, setCoords] = useState<ICoordinates | null>(null);
@@ -66,7 +67,10 @@ export default function WeatherView() {
 
       {/* Loading and errors */}
       {(loadingGeocode || loadingForecast) && (
-        <p className="text-blue-600 text-center mb-4">Loading forecast...</p>
+        <div className="flex flex-col items-center gap-2">
+          <SpinnerIcon />
+          <p className="text-blue-600 text-center mb-4">Loading forecast...</p>
+        </div>
       )}
 
       {(geocodeError || forecastError) && (
