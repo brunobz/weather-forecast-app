@@ -39,6 +39,7 @@ export default function InputForm({ onSubmit, isLoading }: InputFormProps) {
         >
           Enter Address
         </label>
+
         <input
           id="address"
           type="text"
@@ -50,6 +51,8 @@ export default function InputForm({ onSubmit, isLoading }: InputFormProps) {
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           {...register("address")}
         />
+
+        {/* Show invalid address alert */}
         {errors.address && (
           <p
             id="address-error"

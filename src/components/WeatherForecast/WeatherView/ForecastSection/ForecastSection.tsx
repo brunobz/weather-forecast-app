@@ -14,6 +14,7 @@ export const ForecastSection = ({ forecast }: ForecastSectionProps) => {
 
   return (
     <>
+      {/* Current Day and Night forecast section */}
       <section
         aria-label="current day weather forecast"
         className="flex flex-col lg:flex-row gap-6 py-2 pl-4 mb-4"
@@ -28,6 +29,7 @@ export const ForecastSection = ({ forecast }: ForecastSectionProps) => {
         Forecast for the next 6 days
       </p>
 
+      {/* Next 6 days and Nights forecast section */}
       <section
         aria-label="6 day weather forecast"
         className="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 py-2 px-4"

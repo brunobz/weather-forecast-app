@@ -1,6 +1,6 @@
 import InputForm from "@/components/WeatherForecast/WeatherView/InputForm/InputForm";
-import { useGeocode } from "@/hooks/useGeocode";
-import { useWeather } from "@/hooks/useWeather";
+import { useGeocode } from "@/hooks/geocode/useGeocode";
+import { useWeather } from "@/hooks/weather/useWeather";
 import { useState } from "react";
 import type { ICoordinates } from "@/interfaces/coordinates";
 import { LocationIcon } from "@/components/ui/icons/LocationIcon";

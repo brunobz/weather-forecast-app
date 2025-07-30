@@ -1,6 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
-import type { IForecastDay, IRawPeriod } from "../interfaces/weather";
+import type { IForecastDay, IRawPeriod } from "../../interfaces/weather";
+
+const getParsedForecastData = (periods: IRawPeriod[]) => {
+  return periods.map((period) => ({
+    name: period.name,
+    temperature: period.temperature,
+    temperatureUnit: period.temperatureUnit,
+    shortForecast: period.shortForecast,
+    icon: period.icon,
+    isDaytime: period.isDaytime,
+    startTime: period.startTime,
+    detailedForecast: period.detailedForecast,
+    probabilityOfPrecipitation: period.probabilityOfPrecipitation.value,
+  }));
+};
 
 export function useWeather() {
   const [forecast, setForecast] = useState<IForecastDay[] | null>(null);
@@ -30,19 +44,7 @@ export function useWeather() {
         return;
       }
 
-      const parsedForecast: IForecastDay[] = (periods as IRawPeriod[]).map(
-        (period) => ({
-          name: period.name,
-          temperature: period.temperature,
-          temperatureUnit: period.temperatureUnit,
-          shortForecast: period.shortForecast,
-          icon: period.icon,
-          isDaytime: period.isDaytime,
-          startTime: period.startTime,
-          detailedForecast: period.detailedForecast,
-          probabilityOfPrecipitation: period.probabilityOfPrecipitation.value,
-        })
-      );
+      const parsedForecast = getParsedForecastData(periods);
 
       setForecast(parsedForecast);
     } catch (err) {

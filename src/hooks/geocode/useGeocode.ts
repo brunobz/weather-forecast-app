@@ -33,7 +33,7 @@ export function useGeocode() {
       return {
         lat: result.y,
         lng: result.x,
-        address: data?.result?.input?.address.address,
+        address: data?.result?.addressMatches?.[0].matchedAddress,
       };
     } catch (err: unknown) {
       if (err instanceof Error) {

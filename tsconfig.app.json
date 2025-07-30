@@ -10,6 +10,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "types": ["vitest", "vite/client"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
