@@ -1,5 +1,5 @@
-import type { ICoordinates } from "@/interfaces/coordinates";
 import { useState } from "react";
+import type { ICoordinates } from "@/interfaces/coordinates";
 
 export function useGeocode() {
   const [loading, setLoading] = useState(false);
